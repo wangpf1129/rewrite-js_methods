@@ -1,4 +1,4 @@
-const utilsModule = ((Function) => {
+const utilsFunctionModule = ((Function) => {
   Function.prototype.myCall = function (context) {
     context = context ? Object(context) : window;
     let uniqueKey = new Date().getTime().toString();
@@ -47,6 +47,30 @@ const utilsModule = ((Function) => {
     return newFn;
   };
 
+  function myInstanceof(target, type) {
+    target = target.__proto__;
+    type = type.prototype;
+    while (true) {
+      if (target === null) {
+        return false;
+      }
+      if (target === type) {
+        return true;
+      }
+      target = target.__proto__;
+    }
+  }
+
+  return {myInstanceof};
 })(Function);
 
-export default utilsModule;
+
+const utilsArrayModule = ((Array) => {
+  Array.prototype.myForEach = function (callback) {
+    let arg2 = arguments[1] || window;
+    for (let i = 0; i < this.length; i++) {
+      callback.apply(arg2, [this[i], i, this]);
+    }
+  };
+})(Array);
+export {utilsFunctionModule, utilsArrayModule};
