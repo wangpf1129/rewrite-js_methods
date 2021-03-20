@@ -1,12 +1,6 @@
-import {utilsFunctionModule,utilsArrayModule} from './libs/utils.js';
-const {myInstanceof} = utilsFunctionModule
+import {utilsFunctionModule, utilsArrayModule} from './libs/utils.js';
 
-
-
-
-
-
-
+const {myInstanceof} = utilsFunctionModule;
 
 
 // let obj = {
@@ -35,9 +29,9 @@ const {myInstanceof} = utilsFunctionModule
 // console.log(myInstanceof([],Object));
 // console.log(myInstanceof([],Function));
 
-let arr = [{name:'jack',age:18},{name:'mark',age:19},{name:'zed',age:20}]
-let arr2 = [{name:'jack',age:18},{name:'mark',age:19},{name:'zed',age:20}]
-let obj = {a:1}
+let arr = [{name: 'jack', age: 18}, {name: 'mark', age: 19}, {name: 'zed', age: 20}];
+let arr2 = [{name: 'jack', age: 18}, {name: 'mark', age: 19}, {name: 'zed', age: 20}];
+let obj = {a: 1};
 
 // 测试 myForEach
 // arr.myForEach(function (item,index,arr){
@@ -99,4 +93,22 @@ let obj = {a:1}
 // let newArr2 = arr2.mySome(function (item,index,arr){
 //   return item.age < 20
 // })
+// console.log(newArr2);
+
+
+// 测试 myReduce
+// let initialValue = [{name: 'zzz', age: 16}];
+// let newArr = arr.reduce(function (prev, item, index, arr) {
+//   item.age >= 16 && prev.push(item);
+//   return prev;
+// }, initialValue);
+// console.log(newArr);
+//
+// console.log('---------------------');
+//
+// let initialValue2 = [{name: 'zzz', age: 16}];
+// let newArr2 = arr2.myReduce(function (prev, item, index, arr) {
+//   item.age >= 16 && prev.push(item);
+//   return prev;
+// }, initialValue2);
 // console.log(newArr2);

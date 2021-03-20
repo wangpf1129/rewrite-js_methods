@@ -92,12 +92,14 @@ const utilsArrayModule = ((Array) => {
     }
     return newArr;
   };
+
   Array.prototype.myEvery = function (callback) {
     let arg2 = arguments[1] || window;
     let gate = true;
     for (let i = 0; i < this.length; i++) {
       if (!callback.apply(arg2, [this[i], i, this])) {
         gate = false;
+        break;
       }
     }
     return gate;
@@ -109,9 +111,18 @@ const utilsArrayModule = ((Array) => {
     for (let i = 0; i < this.length; i++) {
       if (callback.apply(arg2, [this[i], i, this])) {
         gate = true;
+        break;
       }
     }
     return gate;
   };
+
+  Array.prototype.myReduce = function (callback, initialValue) {
+    for (let i = 0; i < this.length; i++) {
+      initialValue = callback(initialValue, this[i], i, this);
+    }
+    return initialValue;
+  };
+
 })(Array);
 export {utilsFunctionModule, utilsArrayModule};
