@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cedbc849-b1df-47c6-bdb8-8cbdb87f6834" name="Default Changelist" comment="重写 map、filter、every、some等数组方法">
+    <list default="true" id="cedbc849-b1df-47c6-bdb8-8cbdb87f6834" name="Default Changelist" comment="重写 reduce 方法">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/libs/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/libs/utils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
@@ -49,7 +49,7 @@
       <workItem from="1615958107839" duration="6859000" />
       <workItem from="1615969099365" duration="15000" />
       <workItem from="1616157318912" duration="3825000" />
-      <workItem from="1616219997599" duration="6455000" />
+      <workItem from="1616219997599" duration="6701000" />
     </task>
     <task id="LOCAL-00001" summary="重写call,apply,bind方法">
       <created>1615967161581</created>
@@ -79,7 +79,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616223625772</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="重写 reduce 方法">
+      <created>1616231168970</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1616231168970</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -101,7 +108,8 @@
     <MESSAGE value="重写call,apply,bind方法" />
     <MESSAGE value="重写 instanceof  和 forEach" />
     <MESSAGE value="重写 map、filter、every、some等数组方法" />
-    <option name="LAST_COMMIT_MESSAGE" value="重写 map、filter、every、some等数组方法" />
+    <MESSAGE value="重写 reduce 方法" />
+    <option name="LAST_COMMIT_MESSAGE" value="重写 reduce 方法" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

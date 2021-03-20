@@ -112,3 +112,20 @@ let obj = {a: 1};
 //   return prev;
 // }, initialValue2);
 // console.log(newArr2);
+
+// 测试 myReduceRight
+// let initialValue = [{name: 'zzz', age: 16}];
+// let newArr = arr.reduceRight(function (prev, item, index, arr) {
+//   item.age >= 16 && prev.push(item);
+//   return prev;
+// }, initialValue);
+// console.log(newArr);
+//
+// console.log('---------------------');
+//
+// let initialValue2 = [{name: 'zzz', age: 16}];
+// let newArr2 = arr2.myReduceRight(function (prev, item, index, arr) {
+//   item.age >= 16 && prev.push(item);
+//   return prev;
+// }, initialValue2);
+// console.log(newArr2);

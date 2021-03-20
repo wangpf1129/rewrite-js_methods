@@ -124,5 +124,12 @@ const utilsArrayModule = ((Array) => {
     return initialValue;
   };
 
+  Array.prototype.myReduceRight = function (callback, initialValue) {
+    for (let i = this.length - 1; i >= 0; i--) {
+      initialValue = callback(initialValue, this[i], i, this);
+    }
+    return initialValue;
+  };
+
 })(Array);
 export {utilsFunctionModule, utilsArrayModule};
