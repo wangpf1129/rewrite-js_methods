@@ -24,7 +24,7 @@ const utilsFunctionModule = ((Function) => {
       return context[uniqueKey]();
     }
     // 证明args是一个数组了，
-    let result = context[uniqueKey](...args)
+    let result = context[uniqueKey](...args);
     delete context[uniqueKey];
     return result;
   };
@@ -75,7 +75,15 @@ const utilsFunctionModule = ((Function) => {
     return targetObj;
   }
 
-  return {myInstanceof, deepClone};
+  function myNew() {
+    let constructor = [].shift.call(arguments);
+    let _this = {};
+    _this.__proto__ = constructor.prototype;
+    const res = constructor.apply(_this, arguments);  // 这时的  arguments 不包含第一个参数
+    return typeof res === 'object' && res ? res : _this;
+  }
+
+  return {myInstanceof, deepClone, myNew};
 })(Function);
 
 

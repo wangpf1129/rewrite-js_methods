@@ -1,17 +1,20 @@
 import {utilsFunctionModule, utilsArrayModule} from './libs/utils.js';
 
-const {myInstanceof,deepClone} = utilsFunctionModule;
+const {myInstanceof, deepClone,myNew} = utilsFunctionModule;
 
 
+// 测试 myApply
+// let aaa = {age: 18};
+//
+// function test() {
+//   console.log(this);
+//   console.log(arguments);
+// }
+//
+// test.apply(aaa, ['hh', 'cc']);
+// console.log('-------------------');
+// test.myApply(aaa, [1, 'c']);
 
-let aaa = { age: 18 };
-function test() {
-  console.log(this);
-  console.log(arguments);
-}
-test.apply(aaa, ["hh", "cc"]);
-console.log("-------------------");
-test.myApply(aaa, [1,'c']);
 
 // let obj = {
 //   age:20
@@ -147,3 +150,19 @@ let obj = {a: 1};
 // newObject.hobby.eat = 3
 // console.log(object);
 // console.log(newObject);
+
+// 测试 myNew
+
+function Test(a, b) {
+  this.a = a;
+  this.b = b;
+}
+// 如果有return 的是 number string boolean  undefined null ，则忽略
+Test.prototype.add = function () {
+  return this.a + this.b;
+};
+
+const test1 = new Test(1, 2);
+const test2 = myNew(Test,1,2)
+console.log(test1);
+console.log(test2);
