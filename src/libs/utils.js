@@ -72,5 +72,46 @@ const utilsArrayModule = ((Array) => {
       callback.apply(arg2, [this[i], i, this]);
     }
   };
+
+  Array.prototype.myMap = function (callback) {
+    let arg2 = arguments[1] || window;
+    let newArr = [];
+    for (let i = 0; i < this.length; i++) {
+      // 这里需要对对象进行深拷贝，这里就简单写了
+      newArr.push(callback.apply(arg2, [this[i], i, this]));
+    }
+
+    return newArr;
+  };
+
+  Array.prototype.myFilter = function (callback) {
+    let arg2 = arguments[1] || window;
+    let newArr = [];
+    for (let i = 0; i < this.length; i++) {
+      callback.apply(arg2, [this[i], i, this]) ? newArr.push(this[i]) : newArr;
+    }
+    return newArr;
+  };
+  Array.prototype.myEvery = function (callback) {
+    let arg2 = arguments[1] || window;
+    let gate = true;
+    for (let i = 0; i < this.length; i++) {
+      if (!callback.apply(arg2, [this[i], i, this])) {
+        gate = false;
+      }
+    }
+    return gate;
+  };
+
+  Array.prototype.mySome = function (callback) {
+    let arg2 = arguments[1] || window;
+    let gate = false;
+    for (let i = 0; i < this.length; i++) {
+      if (callback.apply(arg2, [this[i], i, this])) {
+        gate = true;
+      }
+    }
+    return gate;
+  };
 })(Array);
 export {utilsFunctionModule, utilsArrayModule};
