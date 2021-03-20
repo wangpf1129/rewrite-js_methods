@@ -23,9 +23,8 @@ const utilsFunctionModule = ((Function) => {
     if (!args || Array.isArray(args) === false) {
       return context[uniqueKey]();
     }
-
     // 证明args是一个数组了，
-    let result = eval('context[uniqueKey](' + args + ')');
+    let result = context[uniqueKey](...args)
     delete context[uniqueKey];
     return result;
   };
@@ -61,7 +60,22 @@ const utilsFunctionModule = ((Function) => {
     }
   }
 
-  return {myInstanceof};
+  function deepClone(object) {
+    let targetObj = object.constructor === Array ? [] : {};
+    for (let k in object) {
+      if (object.hasOwnProperty(k)) {
+        if (typeof object[k] === 'object' && object[k]) {
+          targetObj[k] = object[k].constructor === Array ? [] : {};
+          targetObj[k] = deepClone(object[k]);
+        } else {
+          targetObj[k] = object[k];
+        }
+      }
+    }
+    return targetObj;
+  }
+
+  return {myInstanceof, deepClone};
 })(Function);
 
 

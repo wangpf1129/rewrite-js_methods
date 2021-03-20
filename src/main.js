@@ -1,7 +1,17 @@
 import {utilsFunctionModule, utilsArrayModule} from './libs/utils.js';
 
-const {myInstanceof} = utilsFunctionModule;
+const {myInstanceof,deepClone} = utilsFunctionModule;
 
+
+
+let aaa = { age: 18 };
+function test() {
+  console.log(this);
+  console.log(arguments);
+}
+test.apply(aaa, ["hh", "cc"]);
+console.log("-------------------");
+test.myApply(aaa, [1,'c']);
 
 // let obj = {
 //   age:20
@@ -129,3 +139,11 @@ let obj = {a: 1};
 //   return prev;
 // }, initialValue2);
 // console.log(newArr2);
+
+
+// 测试  深拷贝 deepClone
+// let object = {name:'zed',age:18,hobby:{play:1,eat:2}}
+// let newObject = deepClone(object)
+// newObject.hobby.eat = 3
+// console.log(object);
+// console.log(newObject);
